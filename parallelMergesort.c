@@ -29,6 +29,7 @@ void merge(double lyst[], double back[], int low, int mid, int high);
 void mergeSortHelper(double lyst[], double back[], int low, int high);
 void mergeSort(double lyst[], int size);
 int isSorted(double lyst[], int size);
+double elapsed(struct timeval *start, struct timeval *end);
 
 //for parallel implementation
 void parallelMergeSort(double lyst[], int size, int tlevel);
@@ -63,6 +64,11 @@ int main (int argc, char *argv[])
 	if (argc == 2) //user specified list size.
 	{
 		NUM = atoi(argv[1]);
+	}
+	if (argc > 2 || NUM < 2)
+	{
+		printf("usage: %s [list size >= 2]\n", argv[0]);
+		exit(1);
 	}
 
 	//Want to compare sorting on the same list,
@@ -142,10 +148,25 @@ int main (int argc, char *argv[])
 
 
 //top level sequential mergesort
+//Unrolls the first level of mergeSortHelper so the
+//top-level merge can be timed on its own.
 void mergeSort(double lyst[], int size)
 {
+	struct timeval start, end;
 	double *back = (double *) malloc(size*sizeof(double));
-	mergeSortHelper(lyst, back, 0, size-1);
+
+	if (size > 1)
+	{
+		int mid = (size - 1) / 2;
+		mergeSortHelper(lyst, back, 0, mid);
+		mergeSortHelper(lyst, back, mid + 1, size - 1);
+
+		gettimeofday(&start, NULL);
+		merge(lyst, back, 0, mid, size - 1);
+		gettimeofday(&end, NULL);
+		printf("Top-level sequential merge took: %lf sec.\n",
+			elapsed(&start, &end));
+	}
 	free(back);
 }
 
@@ -203,6 +224,12 @@ int isSorted(double lyst[], int size)
 		}
 	}
 	return 1;
+}
+
+double elapsed(struct timeval *start, struct timeval *end)
+{
+	return ((end->tv_sec * 1000000 + end->tv_usec)
+		  - (start->tv_sec * 1000000 + start->tv_usec))/1000000.0;
 }
 
 
@@ -332,8 +359,16 @@ void *parallelMergeSortHelper(void *threadarg)
 
 	//Call the sequential merge now that the left and right
 	//sides are sorted.
+	struct timeval start, end;
+	gettimeofday(&start, NULL);
 	merge(my_data->lyst, my_data->back, my_data->low, mid, my_data->high);
-	
+	gettimeofday(&end, NULL);
+	if (my_data->low == 0 && my_data->high == NUM - 1)
+	{
+		printf("Top-level merge in parallel run took: %lf sec.\n",
+			elapsed(&start, &end));
+	}
+
 	pthread_exit(NULL);
 }
 
