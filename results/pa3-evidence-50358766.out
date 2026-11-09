@@ -1,0 +1,220 @@
+host: r227.ib.bridges2.psc.edu  cpus: 16  date: Mon Nov  9 01:16:15 EST 2026
+allowed cpus: Cpus_allowed_list:	49-63,127
+### E: /usr/bin/time -v
+=== E threads=1
+Top-level sequential merge took: 0.107482 sec.
+Sequential mergesort took: 2.539258 sec.
+Parallel mergesort took: 2.660949 sec.
+Built-in qsort took: 2.305991 sec.
+	Command being timed: "./ev1 10000000"
+	User time (seconds): 7.60
+	System time (seconds): 0.07
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:07.71
+	Maximum resident set size (kbytes): 236100
+	Minor (reclaiming a frame) page faults: 5613
+	Voluntary context switches: 4
+	Involuntary context switches: 18
+=== E threads=16
+Top-level sequential merge took: 0.108382 sec.
+Sequential mergesort took: 2.540472 sec.
+Top-level merge in parallel run took: 0.129239 sec.
+Parallel mergesort took: 0.452649 sec.
+Built-in qsort took: 2.327821 sec.
+	Command being timed: "./ev16 10000000"
+	User time (seconds): 7.58
+	System time (seconds): 0.05
+	Percent of CPU this job got: 138%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.52
+	Maximum resident set size (kbytes): 237116
+	Minor (reclaiming a frame) page faults: 3449
+	Voluntary context switches: 126
+	Involuntary context switches: 100
+### F: thread snapshot
+=== F after 30s, 32 threads in process 9520
+   PID    LWP PSR %CPU STAT COMMAND
+  9520   9520  54 98.3 Sl   ev16
+  9520   9642  57  0.0 Sl   ev16
+  9520   9643  63  0.0 Sl   ev16
+  9520   9644  54  0.0 Sl   ev16
+  9520   9645  57  0.0 Sl   ev16
+  9520   9646  52  0.0 Sl   ev16
+  9520   9647  60  0.0 Sl   ev16
+  9520   9648  61  0.0 Sl   ev16
+  9520   9649  62  0.0 Sl   ev16
+  9520   9650  63  0.0 Sl   ev16
+  9520   9651  51  0.0 Sl   ev16
+  9520   9652  58  0.0 Sl   ev16
+  9520   9653  57  0.0 Rl   ev16
+  9520   9654  54  0.0 Sl   ev16
+  9520   9655  58  0.0 Sl   ev16
+  9520   9656  53  0.0 Sl   ev16
+  9520   9657  56  0.0 Rl   ev16
+  9520   9658  52  0.0 Rl   ev16
+  9520   9659  50  0.0 Sl   ev16
+  9520   9660  62  0.0 Rl   ev16
+  9520   9661  63  0.0 Rl   ev16
+  9520   9662  59  0.0 Rl   ev16
+  9520   9663  50  0.0 Rl   ev16
+  9520   9664  51  0.0 Rl   ev16
+  9520   9665  55  0.0 Rl   ev16
+  9520   9666  49  0.0 Rl   ev16
+  9520   9667 127  0.0 Rl   ev16
+  9520   9669  53  0.0 Rl   ev16
+  9520   9668  61  0.0 Rl   ev16
+  9520   9670  60  0.0 Rl   ev16
+  9520   9671  58  0.0 Rl   ev16
+  9520   9672  54  0.0 Rl   ev16
+=== F program output
+Top-level sequential merge took: 1.072212 sec.
+Sequential mergesort took: 28.814787 sec.
+Top-level merge in parallel run took: 1.076389 sec.
+Parallel mergesort took: 3.684150 sec.
+Built-in qsort took: 27.974343 sec.
+### G: perf stat
+=== G threads=1
+Top-level sequential merge took: 0.119259 sec.
+Sequential mergesort took: 2.645653 sec.
+Parallel mergesort took: 2.578923 sec.
+Built-in qsort took: 2.393733 sec.
+
+ Performance counter stats for './ev1 10000000':
+
+           7855.49 msec task-clock:u              #    1.000 CPUs utilized          
+       24476538533      cycles:u                  #    3.116 GHz                      (74.98%)
+       30141054862      instructions:u            #    1.23  insn per cycle           (75.01%)
+         334967501      cache-references:u        #   42.641 M/sec                    (75.01%)
+          17030885      cache-misses:u            #    5.084 % of all cache refs      (75.00%)
+                 0      context-switches:u        #    0.000 /sec                   
+                 0      cpu-migrations:u          #    0.000 /sec                   
+
+       7.856997369 seconds time elapsed
+
+       7.682477000 seconds user
+       0.084032000 seconds sys
+
+
+=== G threads=16
+Top-level sequential merge took: 0.111017 sec.
+Sequential mergesort took: 2.625254 sec.
+Top-level merge in parallel run took: 0.129324 sec.
+Parallel mergesort took: 0.421620 sec.
+Built-in qsort took: 2.417596 sec.
+
+ Performance counter stats for './ev16 10000000':
+
+           7915.42 msec task-clock:u              #    1.387 CPUs utilized          
+       24604566817      cycles:u                  #    3.108 GHz                      (75.01%)
+       30113531736      instructions:u            #    1.22  insn per cycle           (75.06%)
+         337900668      cache-references:u        #   42.689 M/sec                    (75.06%)
+          16815347      cache-misses:u            #    4.976 % of all cache refs      (74.99%)
+                 0      context-switches:u        #    0.000 /sec                   
+                 0      cpu-migrations:u          #    0.000 /sec                   
+
+       5.707837170 seconds time elapsed
+
+       7.733570000 seconds user
+       0.081189000 seconds sys
+
+
+### H: input size sweep
+=== H n=1000000 threads=1 run=1
+Top-level sequential merge took: 0.012988 sec.
+Sequential mergesort took: 0.225705 sec.
+Parallel mergesort took: 0.225385 sec.
+Built-in qsort took: 0.203022 sec.
+=== H n=1000000 threads=1 run=2
+Top-level sequential merge took: 0.011362 sec.
+Sequential mergesort took: 0.224239 sec.
+Parallel mergesort took: 0.220323 sec.
+Built-in qsort took: 0.181215 sec.
+=== H n=1000000 threads=1 run=3
+Top-level sequential merge took: 0.011926 sec.
+Sequential mergesort took: 0.224135 sec.
+Parallel mergesort took: 0.215136 sec.
+Built-in qsort took: 0.201923 sec.
+=== H n=1000000 threads=16 run=1
+Top-level sequential merge took: 0.012295 sec.
+Sequential mergesort took: 0.223394 sec.
+Top-level merge in parallel run took: 0.012156 sec.
+Parallel mergesort took: 0.039627 sec.
+Built-in qsort took: 0.203210 sec.
+=== H n=1000000 threads=16 run=2
+Top-level sequential merge took: 0.012091 sec.
+Sequential mergesort took: 0.231908 sec.
+Top-level merge in parallel run took: 0.014783 sec.
+Parallel mergesort took: 0.053494 sec.
+Built-in qsort took: 0.179432 sec.
+=== H n=1000000 threads=16 run=3
+Top-level sequential merge took: 0.011305 sec.
+Sequential mergesort took: 0.222508 sec.
+Top-level merge in parallel run took: 0.016841 sec.
+Parallel mergesort took: 0.044516 sec.
+Built-in qsort took: 0.177209 sec.
+=== H n=10000000 threads=1 run=1
+Top-level sequential merge took: 0.115362 sec.
+Sequential mergesort took: 2.622104 sec.
+Parallel mergesort took: 2.615945 sec.
+Built-in qsort took: 2.426033 sec.
+=== H n=10000000 threads=1 run=2
+Top-level sequential merge took: 0.110848 sec.
+Sequential mergesort took: 2.632003 sec.
+Parallel mergesort took: 2.629825 sec.
+Built-in qsort took: 2.380983 sec.
+=== H n=10000000 threads=1 run=3
+Top-level sequential merge took: 0.107207 sec.
+Sequential mergesort took: 2.534852 sec.
+Parallel mergesort took: 2.641308 sec.
+Built-in qsort took: 2.344171 sec.
+=== H n=10000000 threads=16 run=1
+Top-level sequential merge took: 0.111932 sec.
+Sequential mergesort took: 2.619411 sec.
+Top-level merge in parallel run took: 0.107641 sec.
+Parallel mergesort took: 0.375911 sec.
+Built-in qsort took: 2.420654 sec.
+=== H n=10000000 threads=16 run=2
+Top-level sequential merge took: 0.115289 sec.
+Sequential mergesort took: 2.635096 sec.
+Top-level merge in parallel run took: 0.108928 sec.
+Parallel mergesort took: 0.416209 sec.
+Built-in qsort took: 2.222205 sec.
+=== H n=10000000 threads=16 run=3
+Top-level sequential merge took: 0.127894 sec.
+Sequential mergesort took: 2.656240 sec.
+Top-level merge in parallel run took: 0.127742 sec.
+Parallel mergesort took: 0.466866 sec.
+Built-in qsort took: 2.428595 sec.
+=== H n=100000000 threads=1 run=1
+Top-level sequential merge took: 1.069969 sec.
+Sequential mergesort took: 29.586377 sec.
+Parallel mergesort took: 28.923733 sec.
+Built-in qsort took: 27.084107 sec.
+=== H n=100000000 threads=1 run=2
+Top-level sequential merge took: 1.060026 sec.
+Sequential mergesort took: 28.610855 sec.
+Parallel mergesort took: 28.434188 sec.
+Built-in qsort took: 26.999733 sec.
+=== H n=100000000 threads=1 run=3
+Top-level sequential merge took: 1.061380 sec.
+Sequential mergesort took: 28.392217 sec.
+Parallel mergesort took: 28.413328 sec.
+Built-in qsort took: 27.053491 sec.
+=== H n=100000000 threads=16 run=1
+Top-level sequential merge took: 1.070856 sec.
+Sequential mergesort took: 28.688890 sec.
+Top-level merge in parallel run took: 1.096172 sec.
+Parallel mergesort took: 4.992673 sec.
+Built-in qsort took: 27.698077 sec.
+=== H n=100000000 threads=16 run=2
+Top-level sequential merge took: 1.065470 sec.
+Sequential mergesort took: 28.556278 sec.
+Top-level merge in parallel run took: 1.086288 sec.
+Parallel mergesort took: 4.839495 sec.
+Built-in qsort took: 28.665060 sec.
+=== H n=100000000 threads=16 run=3
+Top-level sequential merge took: 1.057179 sec.
+Sequential mergesort took: 28.484499 sec.
+Top-level merge in parallel run took: 1.084438 sec.
+Parallel mergesort took: 4.902121 sec.
+Built-in qsort took: 27.225100 sec.
+### done Mon Nov  9 01:25:59 EST 2026

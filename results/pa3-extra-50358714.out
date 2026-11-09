@@ -1,0 +1,625 @@
+host: r358.ib.bridges2.psc.edu  cpus: 64  date: Mon Nov  9 01:07:55 EST 2026
+### lscpu
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              128
+On-line CPU(s) list: 0-127
+Thread(s) per core:  1
+Core(s) per socket:  64
+Socket(s):           2
+NUMA node(s):        2
+Vendor ID:           AuthenticAMD
+CPU family:          23
+Model:               49
+Model name:          AMD EPYC 7742 64-Core Processor
+Stepping:            0
+CPU MHz:             3136.323
+BogoMIPS:            4491.97
+Virtualization:      AMD-V
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            512K
+L3 cache:            16384K
+NUMA node0 CPU(s):   0-63
+NUMA node1 CPU(s):   64-127
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr wbnoinvd amd_ppin arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip rdpid overflow_recov succor smca
+### memory
+              total        used        free      shared  buff/cache   available
+Mem:            251          36         206           2           9         211
+Swap:           699           0         699
+### numa
+available: 2 nodes (0-1)
+node 0 cpus: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63
+node 0 size: 128637 MB
+node 0 free: 104473 MB
+node 1 cpus: 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127
+node 1 size: 129002 MB
+node 1 free: 106760 MB
+node distances:
+node   0   1 
+  0:  10  32 
+  1:  32  10 
+### gcc
+gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-22)
+### A: N=10000000, 32 and 64 threads
+=== A threads=32 run=1
+Top-level sequential merge took: 0.109984 sec.
+Sequential mergesort took: 2.591745 sec.
+Top-level merge in parallel run took: 0.127269 sec.
+Parallel mergesort took: 0.343606 sec.
+Built-in qsort took: 2.337986 sec.
+=== A threads=32 run=2
+Top-level sequential merge took: 0.110086 sec.
+Sequential mergesort took: 2.593153 sec.
+Top-level merge in parallel run took: 0.124245 sec.
+Parallel mergesort took: 0.333294 sec.
+Built-in qsort took: 2.381178 sec.
+=== A threads=32 run=3
+Top-level sequential merge took: 0.125761 sec.
+Sequential mergesort took: 2.615542 sec.
+Top-level merge in parallel run took: 0.122397 sec.
+Parallel mergesort took: 0.338911 sec.
+Built-in qsort took: 2.361374 sec.
+=== A threads=32 run=4
+Top-level sequential merge took: 0.110853 sec.
+Sequential mergesort took: 2.573346 sec.
+Top-level merge in parallel run took: 0.127256 sec.
+Parallel mergesort took: 0.337871 sec.
+Built-in qsort took: 2.326518 sec.
+=== A threads=32 run=5
+Top-level sequential merge took: 0.110766 sec.
+Sequential mergesort took: 2.584473 sec.
+Top-level merge in parallel run took: 0.123336 sec.
+Parallel mergesort took: 0.333257 sec.
+Built-in qsort took: 2.424976 sec.
+=== A threads=64 run=1
+Top-level sequential merge took: 0.110525 sec.
+Sequential mergesort took: 2.590369 sec.
+Top-level merge in parallel run took: 0.122712 sec.
+Parallel mergesort took: 0.326801 sec.
+Built-in qsort took: 2.401445 sec.
+=== A threads=64 run=2
+Top-level sequential merge took: 0.109268 sec.
+Sequential mergesort took: 2.695009 sec.
+Top-level merge in parallel run took: 0.133388 sec.
+Parallel mergesort took: 0.336437 sec.
+Built-in qsort took: 2.184645 sec.
+=== A threads=64 run=3
+Top-level sequential merge took: 0.108190 sec.
+Sequential mergesort took: 2.537430 sec.
+Top-level merge in parallel run took: 0.127311 sec.
+Parallel mergesort took: 0.328689 sec.
+Built-in qsort took: 2.216195 sec.
+=== A threads=64 run=4
+Top-level sequential merge took: 0.113967 sec.
+Sequential mergesort took: 2.539581 sec.
+Top-level merge in parallel run took: 0.127260 sec.
+Parallel mergesort took: 0.319496 sec.
+Built-in qsort took: 2.336534 sec.
+=== A threads=64 run=5
+Top-level sequential merge took: 0.112292 sec.
+Sequential mergesort took: 2.552172 sec.
+Top-level merge in parallel run took: 0.117584 sec.
+Parallel mergesort took: 0.321549 sec.
+Built-in qsort took: 2.366688 sec.
+### B: N=50000000
+=== B threads=1 run=1
+Top-level sequential merge took: 0.547078 sec.
+Sequential mergesort took: 14.158120 sec.
+Parallel mergesort took: 14.115063 sec.
+Built-in qsort took: 13.207176 sec.
+=== B threads=1 run=2
+Top-level sequential merge took: 0.546659 sec.
+Sequential mergesort took: 14.149754 sec.
+Parallel mergesort took: 14.177770 sec.
+Built-in qsort took: 12.765422 sec.
+=== B threads=1 run=3
+Top-level sequential merge took: 0.547183 sec.
+Sequential mergesort took: 14.148325 sec.
+Parallel mergesort took: 14.197886 sec.
+Built-in qsort took: 13.161071 sec.
+=== B threads=2 run=1
+Top-level sequential merge took: 0.544924 sec.
+Sequential mergesort took: 14.171443 sec.
+Top-level merge in parallel run took: 0.551831 sec.
+Parallel mergesort took: 7.387730 sec.
+Built-in qsort took: 12.032463 sec.
+=== B threads=2 run=2
+Top-level sequential merge took: 0.544182 sec.
+Sequential mergesort took: 13.875515 sec.
+Top-level merge in parallel run took: 0.550158 sec.
+Parallel mergesort took: 7.384147 sec.
+Built-in qsort took: 13.124749 sec.
+=== B threads=2 run=3
+Top-level sequential merge took: 0.546697 sec.
+Sequential mergesort took: 14.132551 sec.
+Top-level merge in parallel run took: 0.547034 sec.
+Parallel mergesort took: 7.395359 sec.
+Built-in qsort took: 12.948633 sec.
+=== B threads=4 run=1
+Top-level sequential merge took: 0.543025 sec.
+Sequential mergesort took: 14.210726 sec.
+Top-level merge in parallel run took: 0.531345 sec.
+Parallel mergesort took: 4.010964 sec.
+Built-in qsort took: 13.424695 sec.
+=== B threads=4 run=2
+Top-level sequential merge took: 0.548626 sec.
+Sequential mergesort took: 14.130193 sec.
+Top-level merge in parallel run took: 0.556688 sec.
+Parallel mergesort took: 4.177263 sec.
+Built-in qsort took: 13.254058 sec.
+=== B threads=4 run=3
+Top-level sequential merge took: 0.544398 sec.
+Sequential mergesort took: 14.126055 sec.
+Top-level merge in parallel run took: 0.553898 sec.
+Parallel mergesort took: 4.181569 sec.
+Built-in qsort took: 13.084765 sec.
+=== B threads=8 run=1
+Top-level sequential merge took: 0.549343 sec.
+Sequential mergesort took: 14.094325 sec.
+Top-level merge in parallel run took: 0.553301 sec.
+Parallel mergesort took: 2.605696 sec.
+Built-in qsort took: 13.287526 sec.
+=== B threads=8 run=2
+Top-level sequential merge took: 0.551663 sec.
+Sequential mergesort took: 14.156121 sec.
+Top-level merge in parallel run took: 0.553672 sec.
+Parallel mergesort took: 2.629057 sec.
+Built-in qsort took: 13.189200 sec.
+=== B threads=8 run=3
+Top-level sequential merge took: 0.550666 sec.
+Sequential mergesort took: 14.162347 sec.
+Top-level merge in parallel run took: 0.549350 sec.
+Parallel mergesort took: 2.625615 sec.
+Built-in qsort took: 13.479292 sec.
+=== B threads=16 run=1
+Top-level sequential merge took: 0.549527 sec.
+Sequential mergesort took: 13.832576 sec.
+Top-level merge in parallel run took: 0.547852 sec.
+Parallel mergesort took: 1.867645 sec.
+Built-in qsort took: 13.010762 sec.
+=== B threads=16 run=2
+Top-level sequential merge took: 0.546394 sec.
+Sequential mergesort took: 14.140905 sec.
+Top-level merge in parallel run took: 0.546242 sec.
+Parallel mergesort took: 1.892733 sec.
+Built-in qsort took: 13.500932 sec.
+=== B threads=16 run=3
+Top-level sequential merge took: 0.545724 sec.
+Sequential mergesort took: 14.135075 sec.
+Top-level merge in parallel run took: 0.546382 sec.
+Parallel mergesort took: 1.884389 sec.
+Built-in qsort took: 13.284173 sec.
+=== B threads=32 run=1
+Top-level sequential merge took: 0.548211 sec.
+Sequential mergesort took: 13.855363 sec.
+Top-level merge in parallel run took: 0.557354 sec.
+Parallel mergesort took: 1.563491 sec.
+Built-in qsort took: 13.396342 sec.
+=== B threads=32 run=2
+Top-level sequential merge took: 0.547791 sec.
+Sequential mergesort took: 14.153263 sec.
+Top-level merge in parallel run took: 0.545935 sec.
+Parallel mergesort took: 1.554132 sec.
+Built-in qsort took: 13.065951 sec.
+=== B threads=32 run=3
+Top-level sequential merge took: 0.550345 sec.
+Sequential mergesort took: 14.158087 sec.
+Top-level merge in parallel run took: 0.547208 sec.
+Parallel mergesort took: 1.560386 sec.
+Built-in qsort took: 13.776403 sec.
+=== B threads=64 run=1
+Top-level sequential merge took: 0.544364 sec.
+Sequential mergesort took: 13.919660 sec.
+Top-level merge in parallel run took: 0.563644 sec.
+Parallel mergesort took: 1.488171 sec.
+Built-in qsort took: 13.226346 sec.
+=== B threads=64 run=2
+Top-level sequential merge took: 0.546367 sec.
+Sequential mergesort took: 14.065454 sec.
+Top-level merge in parallel run took: 0.569302 sec.
+Parallel mergesort took: 1.514485 sec.
+Built-in qsort took: 13.411062 sec.
+=== B threads=64 run=3
+Top-level sequential merge took: 0.538506 sec.
+Sequential mergesort took: 13.812337 sec.
+Top-level merge in parallel run took: 0.563442 sec.
+Parallel mergesort took: 1.456445 sec.
+Built-in qsort took: 13.165138 sec.
+### C: merge profile, N=10000000
+=== C prof16 run=1
+Top-level sequential merge took: 0.109417 sec.
+Sequential mergesort took: 2.567550 sec.
+merge level=1 size=1250000 took: 0.015611 sec.
+merge level=1 size=1250000 took: 0.016452 sec.
+merge level=1 size=1250000 took: 0.016437 sec.
+merge level=1 size=1250000 took: 0.018796 sec.
+merge level=1 size=1250000 took: 0.018025 sec.
+merge level=1 size=1250000 took: 0.018720 sec.
+merge level=1 size=1250000 took: 0.019810 sec.
+merge level=1 size=1250000 took: 0.018581 sec.
+merge level=2 size=2500000 took: 0.029760 sec.
+merge level=2 size=2500000 took: 0.030060 sec.
+merge level=2 size=2500000 took: 0.034366 sec.
+merge level=2 size=2500000 took: 0.035628 sec.
+merge level=3 size=5000000 took: 0.064473 sec.
+merge level=3 size=5000000 took: 0.071841 sec.
+Top-level merge in parallel run took: 0.128157 sec.
+merge level=4 size=10000000 took: 0.128157 sec.
+Parallel mergesort took: 0.394676 sec.
+Built-in qsort took: 2.295425 sec.
+=== C prof16 run=2
+Top-level sequential merge took: 0.109058 sec.
+Sequential mergesort took: 2.578212 sec.
+merge level=1 size=1250000 took: 0.016075 sec.
+merge level=1 size=1250000 took: 0.016837 sec.
+merge level=1 size=1250000 took: 0.015289 sec.
+merge level=1 size=1250000 took: 0.017561 sec.
+merge level=1 size=1250000 took: 0.017125 sec.
+merge level=1 size=1250000 took: 0.016967 sec.
+merge level=1 size=1250000 took: 0.017494 sec.
+merge level=1 size=1250000 took: 0.019368 sec.
+merge level=2 size=2500000 took: 0.030150 sec.
+merge level=2 size=2500000 took: 0.030036 sec.
+merge level=2 size=2500000 took: 0.034020 sec.
+merge level=2 size=2500000 took: 0.036618 sec.
+merge level=3 size=5000000 took: 0.060527 sec.
+merge level=3 size=5000000 took: 0.070264 sec.
+Top-level merge in parallel run took: 0.129080 sec.
+merge level=4 size=10000000 took: 0.129080 sec.
+Parallel mergesort took: 0.397131 sec.
+Built-in qsort took: 2.323490 sec.
+=== C prof16 run=3
+Top-level sequential merge took: 0.108574 sec.
+Sequential mergesort took: 2.574630 sec.
+merge level=1 size=1250000 took: 0.017026 sec.
+merge level=1 size=1250000 took: 0.017521 sec.
+merge level=1 size=1250000 took: 0.018229 sec.
+merge level=1 size=1250000 took: 0.021538 sec.
+merge level=1 size=1250000 took: 0.018621 sec.
+merge level=1 size=1250000 took: 0.018361 sec.
+merge level=1 size=1250000 took: 0.019418 sec.
+merge level=1 size=1250000 took: 0.020061 sec.
+merge level=2 size=2500000 took: 0.028807 sec.
+merge level=2 size=2500000 took: 0.031087 sec.
+merge level=2 size=2500000 took: 0.033622 sec.
+merge level=2 size=2500000 took: 0.035945 sec.
+merge level=3 size=5000000 took: 0.059967 sec.
+merge level=3 size=5000000 took: 0.071744 sec.
+Top-level merge in parallel run took: 0.127960 sec.
+merge level=4 size=10000000 took: 0.127960 sec.
+Parallel mergesort took: 0.395327 sec.
+Built-in qsort took: 2.297568 sec.
+=== C prof64 run=1
+Top-level sequential merge took: 0.107938 sec.
+Sequential mergesort took: 2.565544 sec.
+merge level=1 size=312500 took: 0.004567 sec.
+merge level=1 size=312500 took: 0.004586 sec.
+merge level=1 size=312500 took: 0.004266 sec.
+merge level=1 size=312500 took: 0.004536 sec.
+merge level=1 size=312500 took: 0.003903 sec.
+merge level=1 size=312500 took: 0.004369 sec.
+merge level=1 size=312500 took: 0.004010 sec.
+merge level=1 size=312500 took: 0.004049 sec.
+merge level=2 size=625000 took: 0.008728 sec.
+merge level=1 size=312500 took: 0.003953 sec.
+merge level=1 size=312500 took: 0.004336 sec.
+merge level=1 size=312500 took: 0.004951 sec.
+merge level=1 size=312500 took: 0.004656 sec.
+merge level=1 size=312500 took: 0.004474 sec.
+merge level=1 size=312500 took: 0.004160 sec.
+merge level=1 size=312500 took: 0.004343 sec.
+merge level=1 size=312500 took: 0.005222 sec.
+merge level=1 size=312500 took: 0.004966 sec.
+merge level=1 size=312500 took: 0.004393 sec.
+merge level=1 size=312500 took: 0.004365 sec.
+merge level=1 size=312500 took: 0.004936 sec.
+merge level=1 size=312500 took: 0.004036 sec.
+merge level=1 size=312500 took: 0.004859 sec.
+merge level=1 size=312500 took: 0.004836 sec.
+merge level=1 size=312500 took: 0.004669 sec.
+merge level=1 size=312500 took: 0.003883 sec.
+merge level=1 size=312500 took: 0.004365 sec.
+merge level=1 size=312500 took: 0.004123 sec.
+merge level=1 size=312500 took: 0.004697 sec.
+merge level=1 size=312500 took: 0.004281 sec.
+merge level=1 size=312500 took: 0.004422 sec.
+merge level=2 size=625000 took: 0.008723 sec.
+merge level=2 size=625000 took: 0.009512 sec.
+merge level=2 size=625000 took: 0.008857 sec.
+merge level=2 size=625000 took: 0.008763 sec.
+merge level=2 size=625000 took: 0.009728 sec.
+merge level=2 size=625000 took: 0.008860 sec.
+merge level=2 size=625000 took: 0.008495 sec.
+merge level=2 size=625000 took: 0.009667 sec.
+merge level=2 size=625000 took: 0.010486 sec.
+merge level=2 size=625000 took: 0.009605 sec.
+merge level=2 size=625000 took: 0.009653 sec.
+merge level=2 size=625000 took: 0.009179 sec.
+merge level=1 size=312500 took: 0.005013 sec.
+merge level=2 size=625000 took: 0.010284 sec.
+merge level=1 size=312500 took: 0.004680 sec.
+merge level=2 size=625000 took: 0.009351 sec.
+merge level=3 size=1250000 took: 0.017743 sec.
+merge level=2 size=625000 took: 0.009691 sec.
+merge level=3 size=1250000 took: 0.019571 sec.
+merge level=3 size=1250000 took: 0.015693 sec.
+merge level=3 size=1250000 took: 0.018377 sec.
+merge level=3 size=1250000 took: 0.021617 sec.
+merge level=3 size=1250000 took: 0.019657 sec.
+merge level=3 size=1250000 took: 0.017116 sec.
+merge level=3 size=1250000 took: 0.017121 sec.
+merge level=4 size=2500000 took: 0.034350 sec.
+merge level=4 size=2500000 took: 0.035307 sec.
+merge level=4 size=2500000 took: 0.033074 sec.
+merge level=4 size=2500000 took: 0.034740 sec.
+merge level=5 size=5000000 took: 0.070081 sec.
+merge level=5 size=5000000 took: 0.068742 sec.
+Top-level merge in parallel run took: 0.128052 sec.
+merge level=6 size=10000000 took: 0.128052 sec.
+Parallel mergesort took: 0.337416 sec.
+Built-in qsort took: 2.321492 sec.
+=== C prof64 run=2
+Top-level sequential merge took: 0.110527 sec.
+Sequential mergesort took: 2.574042 sec.
+merge level=1 size=312500 took: 0.004387 sec.
+merge level=1 size=312500 took: 0.004255 sec.
+merge level=1 size=312500 took: 0.003874 sec.
+merge level=1 size=312500 took: 0.004522 sec.
+merge level=1 size=312500 took: 0.004492 sec.
+merge level=1 size=312500 took: 0.004539 sec.
+merge level=1 size=312500 took: 0.004482 sec.
+merge level=1 size=312500 took: 0.004024 sec.
+merge level=1 size=312500 took: 0.004559 sec.
+merge level=1 size=312500 took: 0.004626 sec.
+merge level=1 size=312500 took: 0.004367 sec.
+merge level=1 size=312500 took: 0.004589 sec.
+merge level=1 size=312500 took: 0.005011 sec.
+merge level=2 size=625000 took: 0.009498 sec.
+merge level=2 size=625000 took: 0.009357 sec.
+merge level=2 size=625000 took: 0.008304 sec.
+merge level=1 size=312500 took: 0.003738 sec.
+merge level=1 size=312500 took: 0.003905 sec.
+merge level=1 size=312500 took: 0.004108 sec.
+merge level=1 size=312500 took: 0.004341 sec.
+merge level=2 size=625000 took: 0.008604 sec.
+merge level=1 size=312500 took: 0.004072 sec.
+merge level=1 size=312500 took: 0.004533 sec.
+merge level=1 size=312500 took: 0.004013 sec.
+merge level=1 size=312500 took: 0.004481 sec.
+merge level=1 size=312500 took: 0.004848 sec.
+merge level=1 size=312500 took: 0.003766 sec.
+merge level=1 size=312500 took: 0.004085 sec.
+merge level=1 size=312500 took: 0.004583 sec.
+merge level=1 size=312500 took: 0.004259 sec.
+merge level=1 size=312500 took: 0.004533 sec.
+merge level=2 size=625000 took: 0.007482 sec.
+merge level=2 size=625000 took: 0.009072 sec.
+merge level=2 size=625000 took: 0.007867 sec.
+merge level=2 size=625000 took: 0.008392 sec.
+merge level=2 size=625000 took: 0.007490 sec.
+merge level=2 size=625000 took: 0.009338 sec.
+merge level=1 size=312500 took: 0.004579 sec.
+merge level=1 size=312500 took: 0.004649 sec.
+merge level=1 size=312500 took: 0.004204 sec.
+merge level=1 size=312500 took: 0.005010 sec.
+merge level=1 size=312500 took: 0.004882 sec.
+merge level=2 size=625000 took: 0.010019 sec.
+merge level=2 size=625000 took: 0.008181 sec.
+merge level=2 size=625000 took: 0.008021 sec.
+merge level=2 size=625000 took: 0.010047 sec.
+merge level=2 size=625000 took: 0.009895 sec.
+merge level=2 size=625000 took: 0.009546 sec.
+merge level=3 size=1250000 took: 0.017327 sec.
+merge level=3 size=1250000 took: 0.020146 sec.
+merge level=3 size=1250000 took: 0.019420 sec.
+merge level=3 size=1250000 took: 0.018163 sec.
+merge level=3 size=1250000 took: 0.016536 sec.
+merge level=3 size=1250000 took: 0.016967 sec.
+merge level=3 size=1250000 took: 0.016942 sec.
+merge level=3 size=1250000 took: 0.018539 sec.
+merge level=4 size=2500000 took: 0.038067 sec.
+merge level=4 size=2500000 took: 0.030268 sec.
+merge level=4 size=2500000 took: 0.034824 sec.
+merge level=4 size=2500000 took: 0.036694 sec.
+merge level=5 size=5000000 took: 0.062372 sec.
+merge level=5 size=5000000 took: 0.070880 sec.
+Top-level merge in parallel run took: 0.129928 sec.
+merge level=6 size=10000000 took: 0.129928 sec.
+Parallel mergesort took: 0.339828 sec.
+Built-in qsort took: 2.268897 sec.
+=== C prof64 run=3
+Top-level sequential merge took: 0.111078 sec.
+Sequential mergesort took: 2.571327 sec.
+merge level=1 size=312500 took: 0.004475 sec.
+merge level=1 size=312500 took: 0.004607 sec.
+merge level=1 size=312500 took: 0.004194 sec.
+merge level=1 size=312500 took: 0.004492 sec.
+merge level=1 size=312500 took: 0.004879 sec.
+merge level=1 size=312500 took: 0.004187 sec.
+merge level=1 size=312500 took: 0.005278 sec.
+merge level=1 size=312500 took: 0.003975 sec.
+merge level=1 size=312500 took: 0.004768 sec.
+merge level=1 size=312500 took: 0.005113 sec.
+merge level=1 size=312500 took: 0.004535 sec.
+merge level=1 size=312500 took: 0.004307 sec.
+merge level=1 size=312500 took: 0.004650 sec.
+merge level=1 size=312500 took: 0.004468 sec.
+merge level=1 size=312500 took: 0.004552 sec.
+merge level=1 size=312500 took: 0.004717 sec.
+merge level=1 size=312500 took: 0.003865 sec.
+merge level=1 size=312500 took: 0.004496 sec.
+merge level=1 size=312500 took: 0.005006 sec.
+merge level=1 size=312500 took: 0.004368 sec.
+merge level=2 size=625000 took: 0.009072 sec.
+merge level=1 size=312500 took: 0.003688 sec.
+merge level=2 size=625000 took: 0.008275 sec.
+merge level=1 size=312500 took: 0.004517 sec.
+merge level=2 size=625000 took: 0.010015 sec.
+merge level=2 size=625000 took: 0.009822 sec.
+merge level=2 size=625000 took: 0.009646 sec.
+merge level=2 size=625000 took: 0.009632 sec.
+merge level=1 size=312500 took: 0.004693 sec.
+merge level=1 size=312500 took: 0.004346 sec.
+merge level=2 size=625000 took: 0.009610 sec.
+merge level=1 size=312500 took: 0.004812 sec.
+merge level=2 size=625000 took: 0.007629 sec.
+merge level=1 size=312500 took: 0.004805 sec.
+merge level=1 size=312500 took: 0.004772 sec.
+merge level=1 size=312500 took: 0.004686 sec.
+merge level=2 size=625000 took: 0.008877 sec.
+merge level=2 size=625000 took: 0.009814 sec.
+merge level=2 size=625000 took: 0.009060 sec.
+merge level=1 size=312500 took: 0.004580 sec.
+merge level=2 size=625000 took: 0.008722 sec.
+merge level=2 size=625000 took: 0.009390 sec.
+merge level=1 size=312500 took: 0.004302 sec.
+merge level=3 size=1250000 took: 0.018308 sec.
+merge level=3 size=1250000 took: 0.015594 sec.
+merge level=3 size=1250000 took: 0.018608 sec.
+merge level=1 size=312500 took: 0.004446 sec.
+merge level=1 size=312500 took: 0.004960 sec.
+merge level=2 size=625000 took: 0.009025 sec.
+merge level=2 size=625000 took: 0.008415 sec.
+merge level=3 size=1250000 took: 0.018439 sec.
+merge level=2 size=625000 took: 0.009713 sec.
+merge level=3 size=1250000 took: 0.018464 sec.
+merge level=3 size=1250000 took: 0.016166 sec.
+merge level=3 size=1250000 took: 0.020421 sec.
+merge level=3 size=1250000 took: 0.016115 sec.
+merge level=4 size=2500000 took: 0.034184 sec.
+merge level=4 size=2500000 took: 0.031451 sec.
+merge level=4 size=2500000 took: 0.032027 sec.
+merge level=4 size=2500000 took: 0.037089 sec.
+merge level=5 size=5000000 took: 0.059947 sec.
+merge level=5 size=5000000 took: 0.069906 sec.
+Top-level merge in parallel run took: 0.127701 sec.
+merge level=6 size=10000000 took: 0.127701 sec.
+Parallel mergesort took: 0.337451 sec.
+Built-in qsort took: 2.175789 sec.
+### D: -O2, N=10000000
+=== D threads=1 run=1
+Top-level sequential merge took: 0.070234 sec.
+Sequential mergesort took: 1.691003 sec.
+Parallel mergesort took: 1.641650 sec.
+Built-in qsort took: 1.742520 sec.
+=== D threads=1 run=2
+Top-level sequential merge took: 0.068907 sec.
+Sequential mergesort took: 1.603658 sec.
+Parallel mergesort took: 1.630384 sec.
+Built-in qsort took: 1.740260 sec.
+=== D threads=1 run=3
+Top-level sequential merge took: 0.067760 sec.
+Sequential mergesort took: 1.601597 sec.
+Parallel mergesort took: 1.651458 sec.
+Built-in qsort took: 1.733168 sec.
+=== D threads=2 run=1
+Top-level sequential merge took: 0.068885 sec.
+Sequential mergesort took: 1.616185 sec.
+Top-level merge in parallel run took: 0.070328 sec.
+Parallel mergesort took: 0.854460 sec.
+Built-in qsort took: 1.766645 sec.
+=== D threads=2 run=2
+Top-level sequential merge took: 0.071169 sec.
+Sequential mergesort took: 1.637271 sec.
+Top-level merge in parallel run took: 0.074277 sec.
+Parallel mergesort took: 0.851341 sec.
+Built-in qsort took: 1.782286 sec.
+=== D threads=2 run=3
+Top-level sequential merge took: 0.068852 sec.
+Sequential mergesort took: 1.618685 sec.
+Top-level merge in parallel run took: 0.071874 sec.
+Parallel mergesort took: 0.851852 sec.
+Built-in qsort took: 1.780919 sec.
+=== D threads=4 run=1
+Top-level sequential merge took: 0.067549 sec.
+Sequential mergesort took: 1.592701 sec.
+Top-level merge in parallel run took: 0.072259 sec.
+Parallel mergesort took: 0.486392 sec.
+Built-in qsort took: 1.781054 sec.
+=== D threads=4 run=2
+Top-level sequential merge took: 0.071864 sec.
+Sequential mergesort took: 1.623029 sec.
+Top-level merge in parallel run took: 0.071547 sec.
+Parallel mergesort took: 0.486697 sec.
+Built-in qsort took: 1.779431 sec.
+=== D threads=4 run=3
+Top-level sequential merge took: 0.069083 sec.
+Sequential mergesort took: 1.627952 sec.
+Top-level merge in parallel run took: 0.071111 sec.
+Parallel mergesort took: 0.485670 sec.
+Built-in qsort took: 1.771388 sec.
+=== D threads=8 run=1
+Top-level sequential merge took: 0.071329 sec.
+Sequential mergesort took: 1.625240 sec.
+Top-level merge in parallel run took: 0.073539 sec.
+Parallel mergesort took: 0.311303 sec.
+Built-in qsort took: 1.774481 sec.
+=== D threads=8 run=2
+Top-level sequential merge took: 0.071080 sec.
+Sequential mergesort took: 1.631337 sec.
+Top-level merge in parallel run took: 0.075659 sec.
+Parallel mergesort took: 0.316185 sec.
+Built-in qsort took: 1.771865 sec.
+=== D threads=8 run=3
+Top-level sequential merge took: 0.069827 sec.
+Sequential mergesort took: 1.621231 sec.
+Top-level merge in parallel run took: 0.071066 sec.
+Parallel mergesort took: 0.311796 sec.
+Built-in qsort took: 1.771974 sec.
+=== D threads=16 run=1
+Top-level sequential merge took: 0.069228 sec.
+Sequential mergesort took: 1.625646 sec.
+Top-level merge in parallel run took: 0.073604 sec.
+Parallel mergesort took: 0.235150 sec.
+Built-in qsort took: 1.773899 sec.
+=== D threads=16 run=2
+Top-level sequential merge took: 0.067770 sec.
+Sequential mergesort took: 1.594326 sec.
+Top-level merge in parallel run took: 0.073007 sec.
+Parallel mergesort took: 0.230984 sec.
+Built-in qsort took: 1.776700 sec.
+=== D threads=16 run=3
+Top-level sequential merge took: 0.068552 sec.
+Sequential mergesort took: 1.606679 sec.
+Top-level merge in parallel run took: 0.070184 sec.
+Parallel mergesort took: 0.226650 sec.
+Built-in qsort took: 1.855178 sec.
+=== D threads=32 run=1
+Top-level sequential merge took: 0.070329 sec.
+Sequential mergesort took: 1.741799 sec.
+Top-level merge in parallel run took: 0.073197 sec.
+Parallel mergesort took: 0.202117 sec.
+Built-in qsort took: 1.732298 sec.
+=== D threads=32 run=2
+Top-level sequential merge took: 0.068680 sec.
+Sequential mergesort took: 1.587685 sec.
+Top-level merge in parallel run took: 0.072185 sec.
+Parallel mergesort took: 0.190532 sec.
+Built-in qsort took: 1.759939 sec.
+=== D threads=32 run=3
+Top-level sequential merge took: 0.069717 sec.
+Sequential mergesort took: 1.604217 sec.
+Top-level merge in parallel run took: 0.071368 sec.
+Parallel mergesort took: 0.190991 sec.
+Built-in qsort took: 1.744439 sec.
+=== D threads=64 run=1
+Top-level sequential merge took: 0.069479 sec.
+Sequential mergesort took: 1.607994 sec.
+Top-level merge in parallel run took: 0.071233 sec.
+Parallel mergesort took: 0.188269 sec.
+Built-in qsort took: 1.741889 sec.
+=== D threads=64 run=2
+Top-level sequential merge took: 0.070245 sec.
+Sequential mergesort took: 1.605165 sec.
+Top-level merge in parallel run took: 0.071476 sec.
+Parallel mergesort took: 0.184845 sec.
+Built-in qsort took: 1.745541 sec.
+=== D threads=64 run=3
+Top-level sequential merge took: 0.068849 sec.
+Sequential mergesort took: 1.621903 sec.
+Top-level merge in parallel run took: 0.071834 sec.
+Parallel mergesort took: 0.185801 sec.
+Built-in qsort took: 1.783918 sec.
+### done Mon Nov  9 01:22:25 EST 2026

@@ -41,6 +41,9 @@ def load(name):
         rows = list(csv.DictReader(f))
     for r in rows:
         for k, v in r.items():
+            if v in ("True", "False"):
+                r[k] = v == "True"
+                continue
             try:
                 r[k] = float(v) if "." in v or "e" in v else int(v)
             except (ValueError, TypeError):
@@ -238,9 +241,12 @@ def main():
                 means.append(sum(vals) / len(vals))
             ax.plot(ks, means, color=color, marker=marker, markersize=7, linewidth=2,
                     label=f"Measured, {t} threads (mean per level)")
+        # Ideal line from the sequential top merge measured in the same profiling runs (same node)
+        prof_runs = [r for r in runs if r["profile"]]
+        Tm_p = sum(r["seq_merge"] for r in prof_runs) / len(prof_runs)
         ks = list(range(0, 6))
-        ax.plot(ks, [Tm / 2 ** k for k in ks], color=MUTED, linestyle="--", linewidth=2,
-                label="Ideal Tm / 2^k")
+        ax.plot(ks, [Tm_p / 2 ** k for k in ks], color=MUTED, linestyle="--", linewidth=2,
+                label=f"Ideal Tm / 2^k (Tm = {Tm_p:.4f} s, same runs)")
         ax.set_yscale("log", base=2)
         ax.set_xticks(ks)
         ax.legend(frameon=False, loc="upper right", labelcolor=INK, fontsize=9)

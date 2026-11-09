@@ -1,0 +1,6 @@
+{
+  "name": "pa3-report",
+  "private": true,
+  "description": "Builds PA3 Report.docx from results/*.csv: npm install && REPORT_DATE=MM/DD/YYYY node report.js <out.docx>",
+  "dependencies": { "docx": "9.5.1" }
+}

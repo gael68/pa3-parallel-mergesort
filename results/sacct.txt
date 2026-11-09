@@ -1,0 +1,43 @@
+JobID|JobName|State|ExitCode|Elapsed|NCPUS|NodeList
+50358707|pa3-mergesort|COMPLETED|0:0|00:02:34|16|r195
+50358707.batch|batch|COMPLETED|0:0|00:02:34|16|r195
+50358707.extern|extern|COMPLETED|0:0|00:02:34|16|r195
+50358714|pa3-extra|COMPLETED|0:0|00:14:32|64|r358
+50358714.batch|batch|COMPLETED|0:0|00:14:32|64|r358
+50358714.extern|extern|COMPLETED|0:0|00:14:32|64|r358
+50358766|pa3-evidence|COMPLETED|0:0|00:09:46|16|r227
+50358766.batch|batch|COMPLETED|0:0|00:09:46|16|r227
+50358766.extern|extern|COMPLETED|0:0|00:09:46|16|r227
+Job ID: 50358707
+Cluster: bridges2
+User/Group: sustaita/cis260064p
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 16
+CPU Utilized: 00:03:08
+CPU Efficiency: 7.63% of 00:41:04 core-walltime
+Job Wall-clock time: 00:02:34
+Memory Utilized: 229.30 MB
+Memory Efficiency: 0.75% of 29.69 GB
+Job ID: 50358714
+Cluster: bridges2
+User/Group: sustaita/cis260064p
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 64
+CPU Utilized: 00:19:09
+CPU Efficiency: 2.06% of 15:30:08 core-walltime
+Job Wall-clock time: 00:14:32
+Memory Utilized: 1.12 GB
+Memory Efficiency: 0.94% of 118.75 GB
+Job ID: 50358766
+Cluster: bridges2
+User/Group: sustaita/cis260064p
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 16
+CPU Utilized: 00:11:32
+CPU Efficiency: 7.38% of 02:36:16 core-walltime
+Job Wall-clock time: 00:09:46
+Memory Utilized: 2.19 GB
+Memory Efficiency: 7.37% of 29.69 GB

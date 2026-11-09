@@ -14,8 +14,11 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-HEADER = re.compile(r"^=== (?:(?P<exp>[A-D]) )?(?:threads=(?P<t>\d+)|(?P<prof>prof\d+)) run=(?P<run>\d+)$")
-SECTION_N = {"A": 10_000_000, "B": 50_000_000, "C": 10_000_000, "D": 10_000_000}
+HEADER = re.compile(r"^=== (?:(?P<exp>[A-H]) )?(?:n=(?P<n>\d+) )?(?:threads=(?P<t>\d+)|(?P<prof>prof\d+))(?: run=(?P<run>\d+))?$")
+# "=== F program output" is the 1e8-element, 16-thread run sampled by ps
+F_OUTPUT = "=== F program output"
+SECTION_N = {"A": 10_000_000, "B": 50_000_000, "C": 10_000_000, "D": 10_000_000,
+             "E": 10_000_000, "F": 100_000_000, "G": 10_000_000}
 FIELDS = {
     "Top-level sequential merge took": "seq_merge",
     "Sequential mergesort took": "seq",
@@ -37,6 +40,8 @@ def parse(path):
         where = f"{path}:{lineno}"
         if re.search(r"Oops|ERROR|error|Segmentation|Killed", line):
             errors.append(f"{where}: failure line: {line}")
+        if line == F_OUTPUT:
+            line = "=== F threads=16 run=1"
         m = HEADER.match(line)
         if m:
             exp = m["exp"] or "main"
@@ -45,7 +50,8 @@ def parse(path):
             else:
                 t = int(m["t"])
             cur = {"file": Path(path).name, "exp": exp, "threads": t,
-                   "run": int(m["run"]), "n": SECTION_N.get(exp, 10_000_000),
+                   "run": int(m["run"] or 1),
+                   "n": int(m["n"]) if m["n"] else SECTION_N.get(exp, 10_000_000),
                    "build": "-O2" if exp == "D" else "-O0",
                    "profile": bool(m["prof"]), "lineno": lineno}
             runs.append(cur)
@@ -64,7 +70,7 @@ def parse(path):
             if key in cur:
                 errors.append(f"{where}: duplicate '{m['label']}' in run")
             cur[key] = float(m["sec"])
-        elif line.startswith("###") or line.startswith("JobID") or "|" in line:
+        elif line.startswith(("###", "===", "JobID")) or "|" in line:
             cur = None
     return runs, prof
 
@@ -94,7 +100,7 @@ def check(runs, prof):
 def counts(runs, expected):
     c = defaultdict(int)
     for r in runs:
-        c[(r["file"], r["exp"], r["threads"])] += 1
+        c[(r["file"], r["exp"], r["n"], r["threads"])] += 1
     for k, v in sorted(c.items()):
         if v != expected.get(k[1], v):
             errors.append(f"{k}: {v} runs, expected {expected[k[1]]}")
@@ -145,10 +151,10 @@ def main():
         runs += r
         prof += q
     check(runs, prof)
-    c = counts(runs, {"main": 5, "A": 5, "B": 3, "C": 3, "D": 3})
+    c = counts(runs, {"main": 5, "A": 5, "B": 3, "C": 3, "D": 3, "E": 1, "F": 1, "G": 1, "H": 3})
     print(f"{len(runs)} runs, {len(prof)} profiled merges, {len(c)} configurations")
     for k, v in sorted(c.items()):
-        print(f"  {k[1]:>4} threads={k[2]:<3} runs={v}")
+        print(f"  {k[1]:>4} n={k[2]:<10} threads={k[3]:<3} runs={v}")
     # Leave earlier CSVs untouched rather than write partial results.
     if errors:
         print(f"\n{len(errors)} VALIDATION ERRORS:")
