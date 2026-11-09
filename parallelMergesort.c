@@ -368,6 +368,10 @@ void *parallelMergeSortHelper(void *threadarg)
 		printf("Top-level merge in parallel run took: %lf sec.\n",
 			elapsed(&start, &end));
 	}
+#ifdef MERGE_PROFILE
+	printf("merge level=%d size=%d took: %lf sec.\n", my_data->level,
+		my_data->high - my_data->low + 1, elapsed(&start, &end));
+#endif
 
 	pthread_exit(NULL);
 }

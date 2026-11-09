@@ -1,0 +1,11 @@
+name,value
+T1_seq_mergesort_s,2.51865
+Tm_top_merge_s,0.107017
+log2N,23.2535
+Tm_x_log2N_s,2.48852
+f_top_merge_only,0.0424899
+f_all_merge_levels,0.0849798
+Smax_naive,23.535
+Smax,11.7675
+amdahl_16_naive,9.7719
+amdahl_16,7.0339
